@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel dan Form</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <table border="1" align="center" cellpadding="5">
+        <tr bgcolor="grey">
+            <th rowspan="2">No</th>
+            <th rowspan="2">NRP</th>
+            <th rowspan="2" colspan="2">Nama</th>
+            <th colspan="2">Nilai</th>
+            <tr bgcolor="grey">
+                <td>ETS</td>
+                <td>EAS</td>
+            </tr>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>5025241068</td>
+            <td colspan="2">Riyan Fadli Amazzadin</td>
+            <td>90</td>
+            <td>95</td>
+        </tr>
+        <tr align="center">
+            <td>2</td>
+            <td>5025241066</td>
+            <td colspan="2">mahasigma B</td>
+            <td>95</td>
+            <td>90</td>
+        </tr>
+    </table>
+
+    <div style="width: 100%; display: grid; justify-content: center; margin-top:30px">
+        <div style=
+        "width: 300px; 
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+         padding: 15px;">
+
+         <h2 style="color:green">Registration Form</h2>
+         <form method="post">
+            First Name <br>
+            <input type="text" style="width: 100%; margin-top:10px; margin-bottom: 15px;">
+            Last Name <br>
+            <input type="text" style="width: 100%; margin-top:10px; margin-bottom: 15px;">
+            Password <br>
+            <input type="password" style="width: 100%; margin-top:10px; margin-bottom: 15px;">
+            Re-type Password <br>
+            <input type="password" style="width: 100%; margin-top:10px; margin-bottom: 15px;">
+            Contact <br>
+            <input type="text" style="width: 100%; margin-top:10px; margin-bottom: 15px;">
+            Gender <br>
+            <select name="gender" style="width: 100%; margin-top:10px; margin-bottom: 15px; background-color: white; border: 1px; border-style: solid; border-color: grey;">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <input type="submit" value="Submit" style="width: 100%; height: 30px; color:white; background-color: green; border: none; border-radius: 5px; margin-top:10px">
+         </form>
+         </div>
+    </div>
+    
+    <a href="frame/index.html">Frame</a>
+</body>
+</html>
