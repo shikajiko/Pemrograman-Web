@@ -17,6 +17,7 @@ function loadNameSuggestion() {
 }
 
 loadNameSuggestion();
+
 document.getElementById("regForm").addEventListener("submit", function(e) {
   let nama = document.getElementById("nama").value.trim();
   let nrp = document.getElementById("nrp").value.trim();
