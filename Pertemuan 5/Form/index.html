@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Registrasi Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+  <h2>Form Registrasi Mahasiswa</h2>
+  <form id="regForm">
+    <div class="form-row">
+      <label for="nama">Nama</label>
+      <input list="namaMahasiswa" id="nama" name="nama" autocomplete="off">
+      <datalist id="namaMahasiswa"></datalist>
+    </div>
+
+    <div class="form-row">
+      <label for="nrp">NRP</label>
+      <input type="text" id="nrp" name="nrp">
+    </div>
+
+    <div class="form-row">
+      <label for="matkul">Mata Kuliah</label>
+      <input type="text" id="matkul" name="matkul">
+    </div>
+
+    <div class="form-row">
+      <label for="dosen">Dosen</label>
+      <input type="text" id="dosen" name="dosen">
+    </div>
+
+    <button type="submit">Daftar</button>
+  </form>
+
+  <script src="code.js"></script> 
+</body>
+</html>

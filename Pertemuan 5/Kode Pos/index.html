@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pencarian Kode Pos </title>
+  <style>
+    .form-grid {
+      display: grid;
+      grid-template-columns: 150px 200px;
+      gap: 10px;
+      max-width: 400px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pencarian Kode Pos</h2>
+  <form id="kodePosForm">
+    <div class="form-grid">
+      <div><label for="provinsi">Provinsi</label></div>
+      <div>
+        <select id="provinsi">
+          <option value="">-- Pilih Provinsi --</option>
+        </select>
+      </div>
+
+      <div><label for="kabkota">Kab/Kota</label></div>
+      <div>
+        <select id="kabkota" disabled>
+          <option value="">-- Pilih Kab/Kota --</option>
+        </select>
+      </div>
+
+      <div><label for="kecamatan">Kecamatan</label></div>
+      <div>
+        <select id="kecamatan" disabled>
+          <option value="">-- Pilih Kecamatan --</option>
+        </select>
+      </div>
+    </div>
+
+    <br>
+    <button type="submit">Cari Kode Pos</button>
+  </form>
+
+  <div id="output" class="result"></div>
+
+  <script>
+   const data = {
+        "Jawa Timur": {
+            "Surabaya": {
+            "Tegalsari": "60262",
+            "Wonokromo": "60243"
+            },
+            "Malang": {
+            "Klojen": "65111",
+            "Lowokwaru": "65141"
+            }
+        },
+        "DKI Jakarta": {
+            "Jakarta Selatan": {
+            "Kebayoran Baru": "12120",
+            "Pasar Minggu": "12520"
+            },
+            "Jakarta Barat": {
+            "Cengkareng": "11730",
+            "Grogol Petamburan": "11450"
+            }
+        },
+        "Jawa Tengah": {
+            "Semarang": {
+            "Candisari": "50252",
+            "Tembalang": "50275"
+            },
+            "Solo": {
+            "Laweyan": "57148",
+            "Banjarsari": "57138"
+            }
+        },
+        "Jawa Barat": {
+            "Bandung": {
+            "Coblong": "40132",
+            "Lengkong": "40261"
+            },
+            "Bekasi": {
+            "Bekasi Barat": "17134",
+            "Bekasi Timur": "17111"
+            }
+        },
+        "DI Yogyakarta": {
+            "Kota Yogyakarta": {
+            "Gondokusuman": "55224",
+            "Umbulharjo": "55161"
+            },
+            "Sleman": {
+            "Depok": "55281",
+            "Ngaglik": "55581"
+            }
+        }
+    };
+    
+    const provinsiSelect = document.getElementById("provinsi");
+    const kabkotaSelect = document.getElementById("kabkota");
+    const kecamatanSelect = document.getElementById("kecamatan");
+    const output = document.getElementById("output");
+
+    Object.keys(data).forEach(prov => {
+      let opt = document.createElement("option");
+      opt.value = prov;
+      opt.textContent = prov;
+      provinsiSelect.appendChild(opt);
+    });
+
+    provinsiSelect.addEventListener("change", () => {
+      kabkotaSelect.innerHTML = '<option value="">-- Pilih Kab/Kota --</option>';
+      kecamatanSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+      kabkotaSelect.disabled = true;
+      kecamatanSelect.disabled = true;
+      output.textContent = "";
+
+      let prov = provinsiSelect.value;
+      if (prov) {
+        Object.keys(data[prov]).forEach(kab => {
+          let opt = document.createElement("option");
+          opt.value = kab;
+          opt.textContent = kab;
+          kabkotaSelect.appendChild(opt);
+        });
+        kabkotaSelect.disabled = false;
+      }
+    });
+
+    kabkotaSelect.addEventListener("change", () => {
+      kecamatanSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+      kecamatanSelect.disabled = true;
+      output.textContent = "";
+
+      let prov = provinsiSelect.value;
+      let kab = kabkotaSelect.value;
+      if (kab) {
+        Object.keys(data[prov][kab]).forEach(kec => {
+          let opt = document.createElement("option");
+          opt.value = kec;
+          opt.textContent = kec;
+          kecamatanSelect.appendChild(opt);
+        });
+        kecamatanSelect.disabled = false;
+      }
+    });
+
+    document.getElementById("kodePosForm").addEventListener("submit", e => {
+      e.preventDefault();
+      let prov = provinsiSelect.value;
+      let kab = kabkotaSelect.value;
+      let kec = kecamatanSelect.value;
+
+      if (prov && kab && kec) {
+        let kodePos = data[prov][kab][kec];
+        output.textContent = `Kode Pos ${prov}, ${kab}, ${kec}: ${kodePos}`;
+      } else {
+        output.textContent = "Lengkapi semua pilihan terlebih dahulu.";
+      }
+    });
+  </script>
+</body>
+</html>

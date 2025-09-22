@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Drop Down</title>
+</head>
+<body>
+  <h2>List Drop Down Dinamis Dengan Javascript</h2>
+  <form id="dropDownForm">
+      <div><label for="produk">Jenis Produk</label></div>
+      <div>
+        <select id="produk">
+          <option value="">--Pilih Jenis Produk--</option>
+        </select>
+      </div>
+
+      <div><label for="merk">Pilih Merk</label></div>
+      <div>
+        <select id="merk" disabled>
+          <option value="">--Pilih Merk--</option>
+        </select>
+      </div>
+  </form>
+
+  <script>
+    const data = {
+      "Laptop": ["Lenovo", "Asus", "Acer", "HP", "Dell"],
+      "Handphone": ["Samsung", "Xiaomi", "Oppo", "Vivo", "Realme"],
+      "Sepeda Motor": ["Honda", "Yamaha", "Suzuki", "Kawasaki", "Vespa"]
+    };  
+
+    const produkSelect = document.getElementById("produk");
+    const merkSelect = document.getElementById("merk");
+
+    Object.keys(data).forEach(produk => {
+      let opt = document.createElement("option");
+      opt.value = produk;
+      opt.textContent = produk;
+      produkSelect.appendChild(opt);
+    });
+
+    produkSelect.addEventListener("change", () => {
+      merkSelect.innerHTML = '<option value="">--Pilih Merk--</option>';
+      merkSelect.disabled = true;
+
+      let produk = produkSelect.value;
+      if (produk) {
+        data[produk].forEach(merk => {
+          let opt = document.createElement("option");
+          opt.value = merk;
+          opt.textContent = merk;
+          merkSelect.appendChild(opt);
+        });
+        merkSelect.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
