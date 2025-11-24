@@ -1,5 +1,5 @@
 <?php 
-include ("config.php");
+include "config.php";
 
 $nis = $_POST["nis"];
 $nama = $_POST["nama"];
@@ -13,7 +13,7 @@ $fotobaru = date('dmYHis') . $foto;
 $path = __DIR__ . '/images/' . $fotobaru;
 
 if(move_uploaded_file($tmp, $path)){
-    $sql = $pdo->prepare("INSERT INTO siswa(nis, nama, jenis_kelamin, telp, alamat, foto) VALUES (:nis,:nama,:jk,:telp,:alamat,:foto,)");    
+    $sql = $pdo->prepare("INSERT INTO siswa(nis, nama, jenis_kelamin, telp, alamat, foto) VALUES (:nis,:nama,:jk,:telp,:alamat,:foto)");    
     $sql->bindParam(':nis', $nis);
     $sql->bindParam(':nama', $nama);
     $sql->bindParam(':jk', $jenis_kelamin);
