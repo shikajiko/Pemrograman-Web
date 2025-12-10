@@ -1,0 +1,130 @@
+body {
+  font-family: sans-serif;
+  background: #ebf9fb;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 300;
+}
+
+.login-msg {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.login-box {
+  width: 350px;
+  background: white;
+  margin: 80px auto;
+  padding: 30px 20px;
+  box-shadow: 0px 0px 100px 4px #d6d6d6;
+}
+
+label {
+  font-size: 11pt;
+}
+
+.login-form {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+.login-btn {
+  background: #2aa7e2;
+  color: white;
+  font-size: 11pt;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.link {
+  color: #232323;
+  text-decoration: none;
+  font-size: 10pt;
+}
+
+.alert {
+  background: #e44e4e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #b32929;
+}
+
+body.admin, body.employee, body.manager {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+body.admin {
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+body.admin a {
+  background-color: #d32f2f;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s; 
+}
+
+body.admin a:hover {
+  background-color: #9e1818;
+  box-shadow: 0px 0px 10px rgba(183, 28, 28, 0.5);
+}
+
+body.employee {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+body.employee a {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s; 
+}
+
+body.employee a:hover {
+  background-color: #0d47a1;
+  box-shadow: 0px 0px 10px rgba(13, 71, 161, 0.5);
+}
+
+
+body.manager {
+  background-color: #e0f2f1;
+  color: #004d40;
+}
+
+body.manager a {
+  background-color: #00796b;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s; 
+}
+
+body.manager a:hover {
+  background-color: #004d40;
+  box-shadow: 0px 0px 10px rgba(0, 77, 64, 0.5);
+}
